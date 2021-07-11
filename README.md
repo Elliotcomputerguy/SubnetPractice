@@ -7,8 +7,9 @@ I8[    "" 88       88 88P'    "8a 88P'   `"8a a8P_____88   88       88P'    "8a 
  `"Y8ba,  88       88 88       d8 88       88 8PP"""""""   88       88       d8 88         ,adPPPPP88 8b           88    88 8b         
 aa    ]8I "8a,   ,a88 88b,   ,a8" 88       88 "8b,   ,aa   88,      88b,   ,a8" 88         88,    ,88 "8a,   ,aa   88,   88 "8a,   ,aa 
 `"YbbdP"'  `"YbbdP'Y8 8Y"Ybbd8"'  88       88  `"Ybbd8"'   "Y888    88`YbbdP"'  88         `"8bbdP"Y8  `"Ybbd8"'   "Y888 88  `"Ybbd8"'  
-                                                                    88 
-                                                                    88          
+                                                                    88
+                                                                    88
+                                                                  
 
 Subnet practice is a game i created learning python. I used tehmaze ipcalc rather than recreate the wheel.
 
