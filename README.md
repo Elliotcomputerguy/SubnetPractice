@@ -7,9 +7,7 @@
 ╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝      ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚══════╝
 10101010 00101010 01110101 01010110 10101010 11010101 10101010 00101010 01110101 01010110 10101010 11010101 10101010 00101010 01110101 01010110 101
 
-Subnet practice is a game i created learning python. I am a Network / Infrastructure / Cloud engineer and have decided to give python a go. 
-
-I used tehmaze ipcalc rather than recreate the wheel. 
+Subnet practice is a game i created learning python. I used tehmaze ipcalc rather than recreate the wheel. 
 
 ipcalc can be found here https://pypi.org/project/ipcalc/#files or at https://github.com/tehmaze/ipcalc.
 
