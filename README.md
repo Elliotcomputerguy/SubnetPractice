@@ -1,5 +1,5 @@
 
-Subnet practice is a game i created learning python. I used tehmaze ipcalc module rather than recreate the wheel.
+Subnet practice is a game created learning python. I used tehmaze ipcalc module rather than recreate the wheel.
 
 ipcalc can be found here https://pypi.org/project/ipcalc/#files or at https://github.com/tehmaze/ipcalc.
 
