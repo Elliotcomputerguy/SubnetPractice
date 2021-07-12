@@ -1,11 +1,11 @@
 
-Subnet practice is a game i created learning python. I used tehmaze ipcalc rather than recreate the wheel.
+Subnet practice is a game i created learning python. I used tehmaze ipcalc module rather than recreate the wheel.
 
 ipcalc can be found here https://pypi.org/project/ipcalc/#files or at https://github.com/tehmaze/ipcalc.
 
 Subnet Practice will attempt to install ipcalc with pip if not present on the local machine.
 
-It will create a random ipv4 address and subnet mask and ask you for subnet mask, network class, network ID, First host in range and last and broadcast. It will ask you how many hosts in total and how many subnets.
+It will create a random ipv4 address and subnet mask and ask you for subnet mask, network class, network ID, First host in range and last and broadcast, how many hosts in total and how many subnets.
 
 Can add plenty more features and further subnetting rules for private 172.16.0.0/12 an apipa 169 and loopback 172.0.0.1 and more etc.
 
