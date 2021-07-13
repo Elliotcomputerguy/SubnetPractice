@@ -100,7 +100,7 @@ def netrules():
 # ...https://github.com/tehmaze/ipcalc...
 def ipcalcFunc(ip, prefix):
     try:
-        import ipcalc
+        import ipcalc, sys
         ipcalcList = []
         net = str(f'{ip}/{prefix}')
         net = ipcalc.Network(net)
