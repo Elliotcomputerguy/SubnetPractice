@@ -112,6 +112,7 @@ def ipcalcFunc(ip, prefix):
         return ipcalcList
     except ImportError:
         print('Cannot locate ipcalc module. Ensure you have PIP installed.')
+        sys.exit()
 
 # ...ipcalc does not provide how many subnets so the below function will calculate how many subnets using the...
 # ...formula ((n=network) - (p=prefix))...
