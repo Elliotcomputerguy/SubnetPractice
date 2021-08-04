@@ -212,7 +212,7 @@ def main():
             elif tracker == 8:
                 if netclass == 'C':
                     print(f'\t\t\t\t\t\tNailed it. But is was a class {netclass} network!\n\t\t\t\t\t\tLets test how you do you with a class A or B. You answered {tracker} out of 8.')    
-                else:
+                elif netclass == 'B' or netclass == 'A':
                     (f'\t\t\t\t\t\tSubnetting master. You answered {tracker} out of 8. Well done!')
             time.sleep(6)
         elif option == options[1]:
