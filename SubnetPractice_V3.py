@@ -23,6 +23,7 @@ def setup():
         __import__(package)
     except:
         os.system("pip install "+ package)
+# to do add more logic into installing all the required modules and packages # 
 
 # ...Create random ipv4 address and reutrn the address...
 def createRandInternetProtocolAddress():
@@ -128,97 +129,78 @@ def numberOfSubnets(prefix, classId):
     numOfSubsPow = 2 ** numOfSubs
     return numOfSubsPow
 
+def questions():
+    questions = {
+
+
+        # to do, add all questions into a dictionary and pull from a dictionary #
+
+    }
+    pass
+
+def questionsReplies():
+    questionReplies = {
+
+        # to do, add replies to dictionary
+    }
+
+    pass
+
 # ...main program function...
 def main():
     import sys, os, time
     setup()
-    while True:
-        os.system('cls')
-        unpacklist = netrules()
-        netaddress, prefix, netmask, netclass = unpacklist
-        numOfSubnets = numberOfSubnets(prefix, netclass)
-        ipcalclist = ipcalcFunc(netaddress, prefix)
-        joinipcalc = ''.join(str(ipcalclist).replace('IP','').replace('(','').replace(')','').replace('[','').replace(']','').replace("'",""))
-        ipcalclist = joinipcalc.split(',')
-        options = (1,2)
-        broadcast, firstip, lastip, hosts, netid = ipcalclist
-        hosts = int(hosts)
-        hosts = hosts - 2
-        option = ''
-        main_title()
-        print('''
+    newSubnetQuestion = 0
+    while newSubnetQuestion <= 2:
+        print('hello')
+
+        while True:
+            os.system('cls')
+            unpacklist = netrules()
+            netaddress, prefix, netmask, netclass = unpacklist
+            numOfSubnets = numberOfSubnets(prefix, netclass)
+            ipcalclist = ipcalcFunc(netaddress, prefix)
+            joinipcalc = ''.join(str(ipcalclist).replace('IP','').replace('(','').replace(')','').replace('[','').replace(']','').replace("'",""))
+            ipcalclist = joinipcalc.split(',')
+            options = (1,2)
+            broadcast, firstip, lastip, hosts, netid = ipcalclist
+            hosts = int(hosts)
+            hosts = hosts - 2
+            option = ''
+            main_title()
+
+
+    #to do. Create a loop to choose another subnet without exiting the program and add error capture and add all the user to exit back to 
+    
+    #to the menu from a question... 
+
+
+            print('''
                                                 \t[1] Subnet practice    
                                                 \t[2] Exit                 
-        ''')
-        while option not in options:
-            try:
-                option = int(input('\t\t\t\t\t\t\tMenu Option: '))
-            except ValueError:
-                print('\t\t\t\t\t\t\tInvalid option input')
-        if option == options[0]:
-            print(f'\n\t\t\t\t\t\tip address : {netaddress} /{prefix}\n')
-            userquestion_1 = input(f'\n\t\t\t\t\t\tWhat is the subnet mask to /{prefix} : ').strip().upper()
-            if userquestion_1 == str(netmask):
+            ''')
+            while option not in options:
+                try:
+                    option = int(input('\t\t\t\t\t\t\tMenu Option: '))
+                except ValueError:
+                    print('\t\t\t\t\t\t\tInvalid option input')
+            if option == options[0]:
+                print(f'\n\t\t\t\t\t\tip address : {netaddress} /{prefix}\n')
+
+
+
+                userquestion_1 = input(f'\n\t\t\t\t\t\tWhat is the subnet mask to /{prefix} : ').strip().upper()
+            if userquestion_1 == 'RENEW':
+                newSubnetQuestion = 2
+
+            elif userquestion_1 == str(netmask):
                 tracker = 1
                 print(f'\t\t\t\t\t\tCorrect ! Subnet mask :{netmask} prefix : /{prefix}')
             else:
                 print(f'\t\t\t\t\t\tNot correct ! Subnet mask : {netmask} and prefix : /{prefix}')
-            userquestion_2 = input('\n\t\t\t\t\t\tWhat is the network class of the ip address : ').upper().strip()
-            if userquestion_2 == str(netclass):
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! IP class is : {netclass}')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! IP class is : {netclass}')
-            userquestion_3 = input('\n\t\t\t\t\t\tWhat is the network Id : ').strip()
-            if userquestion_3 == str(netid).strip():
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! network id is : {netid}')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! network id is : {netid}')
-            userquestion_4 = input('\n\t\t\t\t\t\tWhat is the first ip address : ').strip()
-            if userquestion_4 == str(firstip).strip():
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! First ip address is : {firstip}')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! First ip address is : {firstip}')
-            userquestion_5 = input('\n\t\t\t\t\t\tWhat is the last ip address : ').strip()
-            if userquestion_5 == str(lastip).strip():
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! Last ip address is : {lastip}')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! last ip address is : {lastip}')
-            userquestion_6 = input('\n\t\t\t\t\t\tWhat is the broadcast address : ').strip()
-            if userquestion_6 == str(broadcast).strip():
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! Broadcast address is : {broadcast}')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! Broadcast address is : {broadcast}')
-            userquestion_7 = input('\n\t\t\t\t\t\tHow many hosts : ').strip()
-            if userquestion_7 == str(hosts).strip():
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! total hosts : {hosts}\n')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! total hosts : {hosts}\n')
-            userquestion_8 = input('\n\t\t\t\t\t\tHow many subnets :').strip()
-            if userquestion_8 == str(numOfSubnets):
-                tracker += 1
-                print(f'\t\t\t\t\t\tCorrect ! total subnets : {numOfSubnets}\n')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! total subnets : {numOfSubnets}\n')
-            if tracker < 4:
-                print(f'\t\t\t\t\t\tYou answered {tracker} out of 8 questions. More practice needed.')
-            elif tracker <= 7:
-                print(f'\t\t\t\t\t\tAwesome. You answered {tracker} out of 8 questions. Nearly there to becoming a subnet master!')
-            elif tracker == 8:
-                if netclass == 'C':
-                    print(f'\t\t\t\t\t\tNailed it. But is was a class {netclass} network!\n\t\t\t\t\t\tLets test how you do you with a class A or B. You answered {tracker} out of 8.')    
-                elif netclass == 'B' or netclass == 'A':
-                    print(f'\t\t\t\t\t\tSubnetting master. You answered {tracker} out of 8. Well done!')
-            time.sleep(6)
-        elif option == options[1]:
-            print('\n\t\t\t\t\t\tThanks for playing subnetting practice...')
-            time.sleep(2)
-            sys.exit()
+                time.sleep(3)
+            if option == options[1]:
+                sys.exit()
     
 if __name__ == '__main__':
     main()
