@@ -129,78 +129,112 @@ def numberOfSubnets(prefix, classId):
     numOfSubsPow = 2 ** numOfSubs
     return numOfSubsPow
 
-def questions():
+# Function with all the user questions. The function is called from the main program with a argument of the Dictionary key.
+def questions(questionNumber):
+    question = str(questionNumber)
     questions = {
-
+        '1':'\n\t\t\t\t\t\tWhat is the subnet mask to /{prefix} : ',
+        '2':'\n\t\t\t\t\t\tWhat is the network class of the ip address : '
 
         # to do, add all questions into a dictionary and pull from a dictionary #
 
     }
-    pass
+    if question in questions:
+        findKey = questions.get(question, 'Question Does not exist')
+        if findKey != 'Question Does not exist':
+            foundKey = findKey
+            return foundKey
+        else:
+            return findKey
 
-def questionsReplies():
+def questionsReplies(key):
+    reqkey = key
+
     questionReplies = {
-
-        # to do, add replies to dictionary
+        '1': '\t\t\t\t\t\tCorrect ! Subnet mask :{netmask} prefix : /{prefix}',
+        '11':'\t\t\t\t\t\tNot correct ! Subnet mask : {netmask} and prefix : /{prefix}'
+        
     }
+    if reqkey in questionReplies:
+        findKey = questionReplies.get(reqkey, 'Question reply Does not exist')
+        if findKey != 'Question reply Does not exist':
+            foundKey = findKey
+            return foundKey
+        else:
+            return findKey 
 
-    pass
+def tryExceptQuestionAnswers():
+    unpacklist = netrules()
+    netaddress, prefix, netmask, netclass = unpacklist
+    numOfSubnets = numberOfSubnets(prefix, netclass)
+    ipcalclist = ipcalcFunc(netaddress, prefix)
+    joinipcalc = ''.join(str(ipcalclist).replace('IP','').replace('(','').replace(')','').replace('[','').replace(']','').replace("'",""))
+    ipcalclist = joinipcalc.split(',')
+    broadcast, firstip, lastip, hosts, netid = ipcalclist
+    hosts = int(hosts)
+    hosts = hosts - 2
+    # for loop to loop through the questions: 
+    for 
+        try:
+            q1 = (questions('1'))
+            quest1 = input(f'{q1}')
+            if quest1 == str(netmask):
+                tracker = 1
+                print(f'{questionsReplies("1")}')
+            else:
+                print(f'{questionsReplies("11")}')
+
+
+        except:
+
+
+def menuOptions():
+    options = (1,2)
+    option = ''
+
+    print('''
+                                                \t[1] Subnet practice    
+                                                \t[2] Exit                 
+            ''')
+    while option not in options:
+        try:
+            option = int(input('\t\t\t\t\t\t\tMenu Option: '))
+        except ValueError:
+            print('\t\t\t\t\t\t\tInvalid option input')
+    return(option)
 
 # ...main program function...
 def main():
     import sys, os, time
     setup()
     newSubnetQuestion = 0
-    while newSubnetQuestion <= 2:
-        print('hello')
+    skipMenu = 0
+    while newSubnetQuestion != 2:
 
         while True:
             os.system('cls')
-            unpacklist = netrules()
-            netaddress, prefix, netmask, netclass = unpacklist
-            numOfSubnets = numberOfSubnets(prefix, netclass)
-            ipcalclist = ipcalcFunc(netaddress, prefix)
-            joinipcalc = ''.join(str(ipcalclist).replace('IP','').replace('(','').replace(')','').replace('[','').replace(']','').replace("'",""))
-            ipcalclist = joinipcalc.split(',')
-            options = (1,2)
-            broadcast, firstip, lastip, hosts, netid = ipcalclist
-            hosts = int(hosts)
-            hosts = hosts - 2
-            option = ''
+
             main_title()
+            
+            if skipMenu == 1:
+                option = options[0]
+            else:
+                option = menuOptions()
 
-
-    #to do. Create a loop to choose another subnet without exiting the program and add error capture and add all the user to exit back to 
-    
-    #to the menu from a question... 
-
-
-            print('''
-                                                \t[1] Subnet practice    
-                                                \t[2] Exit                 
-            ''')
-            while option not in options:
-                try:
-                    option = int(input('\t\t\t\t\t\t\tMenu Option: '))
-                except ValueError:
-                    print('\t\t\t\t\t\t\tInvalid option input')
-            if option == options[0]:
+            if option == options[0] or skipMenu == 1:
+                skipMenu = 0
+                
                 print(f'\n\t\t\t\t\t\tip address : {netaddress} /{prefix}\n')
 
+                print(questions(1)).upper()
+
+                if userquestion_1 == 'RENEW':
+                    skipMenu = 1
+                    newSubnetQuestion = 2
 
 
-                userquestion_1 = input(f'\n\t\t\t\t\t\tWhat is the subnet mask to /{prefix} : ').strip().upper()
-            if userquestion_1 == 'RENEW':
-                newSubnetQuestion = 2
-
-            elif userquestion_1 == str(netmask):
-                tracker = 1
-                print(f'\t\t\t\t\t\tCorrect ! Subnet mask :{netmask} prefix : /{prefix}')
-            else:
-                print(f'\t\t\t\t\t\tNot correct ! Subnet mask : {netmask} and prefix : /{prefix}')
-                time.sleep(3)
             if option == options[1]:
                 sys.exit()
-    
+
 if __name__ == '__main__':
     main()
